@@ -40,7 +40,7 @@ namespace Business.Concrete
                 KPSPublicSoapClient kPSPublicSoapClient = kPSPublicSoapClient1;
                 KPSPublicSoapClient client = kPSPublicSoapClient;
                 var result = client.TCKimlikNoDogrulaAsync(Convert.ToInt64(person.NationalIdentity), person.FirstName.ToUpper(), person.LastName.ToUpper(), person.DateOfBirthYear);
-                result.Wait();
+                Task.WaitAll();
                 bool sonuc = result.Result.Body.TCKimlikNoDogrulaResult;
                 return sonuc;
         }
